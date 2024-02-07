@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 
@@ -76,8 +77,49 @@ Card Y=3+6
 \textit{Задайте множество, указанное на рисунке с использованием
 характеристического свойства множества:}
 
-\includegraphics[scale=0.8]{task2}
+\includegraphics{task2}
 
-aoeuaa;a;;a;;a;
+\underline{Решение:}
+
+Предлагаем вначале выразить это множество через системы и
+совокупности:
+
+$\left[ 
+  \begin{gathered} 
+    \left\{ 
+      \begin{gathered} 
+		  x^2 + y^2 \leq 1, \hfill 
+        \\ 
+        y \geq x \hfill 
+        \\ 
+      \end{gathered} 
+    \right. \hfill 
+    \\ 
+    \left\{ 
+      \begin{gathered} 
+		  x^2+y^2 \geq 1, \hfill 
+        \\ 
+        y \geq 0, \hfill 
+        \\ 
+        y \leq 1, \hfill 
+        \\ 
+        x \leq 0, \hfill 
+        \\ 
+        x \geq -1, \hfill 
+        \\ 
+      \end{gathered} 
+    \right. \hfill 
+    \\ 
+  \end{gathered} 
+\right.$
+\\[3pt]
+
+Теперь запишем с использованием характеристического
+свойства множества, используя для систем операцию пересечения
+множеств, а для совокупности - объединения:
+
+$$X=\{(x;y) \vert x^2+y^2 \leq 1, y \geq x\} \cup \{(x;y)\vert
+x^2 + y^2 \geq 1, y \geq 0, y \leq 1, x \leq 0, x \geq -1\}$$
+
 
 \end{document}
