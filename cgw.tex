@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \graphicspath{ {./images/} }
 
 \let\oldemptyset\emptyset
@@ -23,29 +24,29 @@
 \textit{Даны множества
 $A=\{b,f,g,m,o\}, B=\{b,g,h,l,u\}, C=\{e,f,m\}, D=\{e,g,l,p,q,u,v\}$\\
 Вычислить мощность множеств}
-$$X = (A \backslash C) \cup (B \cap C),
-Y=(A \cap \bar B) \cup (D \backslash C) $$
+$$X = (A \setminus C) \cup (B \cap C),
+Y=(A \cap \bar B) \cup (D \setminus C) $$
 
 \underline{Решение:}
 
 1. Определим элементы множества 
-$X = (A \backslash C) \cup (B \cap C)$.
+$X = (A \setminus C) \cup (B \cap C)$.
 
-Для этого найдём сначала разность множеств $A \backslash C$.
+Для этого найдём сначала разность множеств $A \setminus C$.
 Для этого вычеркнем из множества $A=\{b,f,g,m,o\}$ элементы
 $\{f, m\}$, принадлежащие $C=\{e,f,m\}$. Следовательно,
-$A \backslash C = \{b, g, o\}$.
+$A \setminus C = \{b, g, o\}$.
 Затем найдём пересечение множеств $B \cap C$.
 Множества $B$ и $C$ не имеют общих элементов. Следовательно,
 $B \cap C = \emptyset$.
-Таким образом, объединение $(A \backslash C) \cup (B \cap C)$ состоит из
+Таким образом, объединение $(A \setminus C) \cup (B \cap C)$ состоит из
 трёх элементов $\{b, g, o\}$.
 
 Мощность множества 
-$X = (A \backslash C) \cup (B \cap C)$ равна 3.
+$X = (A \setminus C) \cup (B \cap C)$ равна 3.
 
 2. Определим элементы множества 
-$Y=(A \cap \bar B) \cup (D \backslash C)$
+$Y=(A \cap \bar B) \cup (D \setminus C)$
 
 Найдем дополнение B . Универсальное множество по условию задания
 состоит их 26 букв
@@ -58,13 +59,13 @@ $\{a,c,d,e,f,i,j,k,m,n,o,p,q,r,s,t,v,w,x,y,z\}$.
 состоит из элементов $\{f, m, o\}$, т.е. всех
 элементов множества $A$, которые не принадлежат $\bar B$.
 
-Для нахождения разности множеств $D \backslash C$ вычеркнем из множества
+Для нахождения разности множеств $D \setminus C$ вычеркнем из множества
 $D=\{e,g,l,p,q,u,v\}$
 элемент $\{e\}$, принадлежащий
 $C=\{e,f,m\}$. Получим
-$D \backslash C = \{g, l, p, q, u, v\}$. В итоге\\
-$$Y=(A \cap \bar B) \cup (D \backslash C) = \{f,g,l,m,o,p,q,u,v\}$$
-Мощность множества Y равна 9. В данном случае множества $D \backslash C$
+$D \setminus C = \{g, l, p, q, u, v\}$. В итоге\\
+$$Y=(A \cap \bar B) \cup (D \setminus C) = \{f,g,l,m,o,p,q,u,v\}$$
+Мощность множества Y равна 9. В данном случае множества $D \setminus C$
 и $A \cap \bar B$ не пересекаются и мощность объединения равна
 сумме мощностей слагаемых
 
@@ -121,5 +122,54 @@ $\left[
 $$X=\{(x;y) \vert x^2+y^2 \leq 1, y \geq x\} \cup \{(x;y)\vert
 x^2 + y^2 \geq 1, y \geq 0, y \leq 1, x \leq 0, x \geq -1\}$$
 
+\pagebreak
+
+\textit{\textbf{Задание 3}}
+
+Проиллюстрировать равенство при помощи диаграмм Эйлера-Венна:
+$$(A \setminus B) \cup (A \cap C) = A \setminus (B \setminus C)$$
+
+\underline{Решение:}
+
+Построим последовательно левую часть равенства:
+
+\begin{figure}[h]
+	\captionsetup[subfigure]{labelformat=empty}
+	\centering
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{t3_1_1.pdf}
+		\caption{1. $A \setminus B$}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{t3_1_2.pdf}
+		\caption{2. $A\cap C$}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{t3_1_3.pdf}
+		\caption{3. $(A \setminus B) \cup (A \cap C)$}
+	\end{subfigure}
+\end{figure}
+
+Теперь построим правую часть:
+
+\begin{figure}[h]
+	\captionsetup[subfigure]{labelformat=empty}
+	\centering
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{t3_2_1.pdf}
+		\caption{1. $(B \setminus C)$}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{t3_2_2.pdf}
+		\caption{2. $A \setminus (B \setminus C)$}
+	\end{subfigure}
+\end{figure}
+
+Диаграммы для левой и правой части оказались одинаковы!
 
 \end{document}
