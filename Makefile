@@ -1,2 +1,2 @@
 all:
-	latexmk -pdf -pvc test.tex
+	latexmk -pdf -pvc cgw.tex

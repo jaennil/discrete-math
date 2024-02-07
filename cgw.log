@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.2.6)  6 FEB 2024 22:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.2.6)  7 FEB 2024 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**test.tex
-(./test.tex
+**cgw.tex
+(./cgw.tex
 LaTeX2e <2023-06-01>
 L3 programming layer <2023-06-05>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -261,67 +261,109 @@ Package babel Info: Default for \cyrdash is provided on input line 163.
 Package babel Info: Importing font and identification data for russian
 (babel)             from babel-ru.ini. Reported on input line 11.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count195
 \l__pdf_internal_box=\box51
 )
-(./test.aux
+(./cgw.aux
 LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 5
 .
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
-\openout1 = `test.aux'.
+\openout1 = `cgw.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Info: Redefining \th on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 8.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 8.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Info: Redefining \th on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (14.2032pt too wide) in paragraph at lines 22--23
+[]\T2A/cmr/m/it/10.95 Даны мно-же-ства $\OML/cmm/m/it/10.95 A \OT1/cmr/m/n/10.9
+5 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 b; f; g; m; o\OMS/cmsy/m/n/10.95 g
+\OML/cmm/m/it/10.95 ; B \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it
+/10.95 b; g; h; l; u\OMS/cmsy/m/n/10.95 g\OML/cmm/m/it/10.95 ; C \OT1/cmr/m/n/1
+0.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 e; f; m\OMS/cmsy/m/n/10.95 g\OM
+L/cmm/m/it/10.95 ; D \OT1/cmr/m/n/10.95 =
+ []
+
+
+Overfull \hbox (34.02449pt too wide) in paragraph at lines 47--53
+\T2A/cmr/m/n/10.95 ния со-сто-ит их 26 букв $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it
+/10.95 a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; 
+y; z\OMS/cmsy/m/n/10.95 g$\T2A/cmr/m/n/10.95 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--63
+
+ []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-t2a.enc}] (./test.aux)
+dvips/cm-super/cm-super-t2a.enc}] (./cgw.aux)
  ***********
 LaTeX2e <2023-06-01>
 L3 programming layer <2023-06-05>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2158 strings out of 475735
- 34317 string characters out of 5784787
- 1852759 words of memory out of 5000000
- 22944 multiletter control sequences out of 15000+600000
- 518527 words of font info for 46 fonts, out of 8000000 for 9000
+ 2692 strings out of 475735
+ 40435 string characters out of 5784787
+ 1860759 words of memory out of 5000000
+ 23461 multiletter control sequences out of 15000+600000
+ 520613 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,6n,52p,230b,197s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfrm1728.pfb>
-Output written on test.pdf (1 page, 36172 bytes).
+ 46i,5n,52p,235b,194s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfbi1095.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb
+>
+Output written on cgw.pdf (1 page, 112850 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
- 14 compressed objects within 1 object stream
+ 44 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
