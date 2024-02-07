@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.2.6)  7 FEB 2024 21:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.2.6)  7 FEB 2024 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -908,6 +908,11 @@ l.242 ..., полученная матрица $M_
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--245
+
+ []
+
 [5] (./cgw.aux)
  ***********
 LaTeX2e <2023-06-01>
@@ -915,10 +920,10 @@ L3 programming layer <2023-06-05>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5766 strings out of 475735
- 91483 string characters out of 5784787
- 1861759 words of memory out of 5000000
- 26475 multiletter control sequences out of 15000+600000
+ 5768 strings out of 475735
+ 91541 string characters out of 5784787
+ 1864759 words of memory out of 5000000
+ 26477 multiletter control sequences out of 15000+600000
  523109 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,13n,77p,302b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -932,7 +937,7 @@ ype1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfbi1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
 </usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fo
 nts/type1/public/cm-super/sfti1095.pfb>
-Output written on cgw.pdf (5 pages, 1309626 bytes).
+Output written on cgw.pdf (5 pages, 1313603 bytes).
 PDF statistics:
  284 PDF objects out of 1000 (max. 8388607)
  152 compressed objects within 2 object streams
