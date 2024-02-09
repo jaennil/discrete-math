@@ -5,10 +5,162 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{array, multirow}
+\usetikzlibrary{matrix,calc}
 \graphicspath{ {./images/} }
 
 \let\oldemptyset\emptyset
 \let\emptyset\varnothing
+
+%isolated term
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - node
+%#3 - filling color
+\newcommand{\implicantsol}[3][0]{
+    \draw[rounded corners=3pt, fill=#3, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#2.south east)+(-45:#1)$);
+    }
+
+
+%internal group
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicant}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#3.south east)+(-45:#1)$);
+    }
+
+%group lateral borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantcostats}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.east |- #2.north)+(90:#1)$)-| ($(#2.east)+(0:#1)$) |- ($(rf.east |- #3.south)+(-90:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.west |- #2.north)+(90:#1)$) -| ($(#3.west)+(180:#1)$) |- ($(cf.west |- #3.south)+(-90:#1)$);
+}
+
+%group top-bottom borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantdaltbaix}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.south -| #2.west)+(180:#1)$) |- ($(#2.south)+(-90:#1)$) -| ($(cf.south -| #3.east)+(0:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.north -| #2.west)+(180:#1)$) |- ($(#3.north)+(90:#1)$) -| ($(rf.north -| #3.east)+(0:#1)$);
+}
+
+%group corners
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - filling color
+\newcommand{\implicantcantons}[2][0]{
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -| ($(0.east |- cf.south)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$);
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -|  ($(0.east |- cf.south)+(0:#1)$) [sharp corners] ($(rf.east |- 0.south)+(-90:#1)$) |-  ($(0.east |- cf.south)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$) [sharp corners] ($(rf.east |- 8.north)+(90:#1)$) |- ($(8.east |- rf.north)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$) [sharp corners]($(cf.west |- 2.south)+(-90:#1)$) |- ($(2.west |- cf.south)+(180:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$) [sharp corners] ($(cf.west |- 10.north)+(90:#1)$) |- ($(10.west |- rf.north)+(180:#1)$) ;
+}
+
+%Empty Karnaugh map 4x4
+\newenvironment{Karnaugh}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,4);
+\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {cd} node [pos=0.7,below left,anchor=north east] {ab} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=8.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                       \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 00             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 01             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(r11)| 11             \& |(12)| \phantom{0} \& |(13)| \phantom{0} \& |(15)| \phantom{0} \& |(14)| \phantom{0} \&                     \\
+|(r10)| 10             \& |(8)|  \phantom{0} \& |(9)|  \phantom{0} \& |(11)| \phantom{0} \& |(10)| \phantom{0} \&                     \\
+|(rf) | \phantom{00}   \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x4
+\newenvironment{Karnaughvuit}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {yz} node [pos=0.7,below left,anchor=north east] {x} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=4.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                      \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 0             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 1             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(rf) | \phantom{00}  \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x2
+\newenvironment{Karnaughquatre}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (2,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {b} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=2.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+          \& |(c00)| 0          \& |(c01)| 1  \\
+|(r00)| 0 \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \\
+|(r01)| 1 \& |(2)|  \phantom{0} \& |(3)|  \phantom{0} \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Defines 8 or 16 values (0,1,X)
+\newcommand{\contingut}[1]{%
+\foreach \x [count=\xi from 0]  in {#1}
+     \path (\xi) node {\x};
+}
+
+%Places 1 in listed positions
+\newcommand{\minterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {1};
+}
+
+%Places 0 in listed positions
+\newcommand{\maxterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {0};
+}
+
+%Places X in listed positions
+\newcommand{\indeterminats}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {X};
+}
 
 \begin{document}
         \begin{center}
@@ -391,11 +543,154 @@ $$\overset{0}{1} \overset{1}{0} \overset{2}{1} \overset{3}{1} \overset{4}{1} \ov
 Для каждого из выделенных объектов (граней, ребер или вершин)
 посмотрим, какие переменные (координаты) не менялись. Для этих переменных
 составим конъюнктивные одночлены по правилу построения СДНФ. Например,
-для ребра, соединяющего точки с координатами (1;0;0) и (0;0;0) не меняются
-вторая (соответствует y) и третья (соответствует z) координаты, и обе они
-равны нулю, значит соответствующий конъюнктивный одночлен -y z  , а для
-ребра, соединяющего точки (1;0;0) и (1;1;0) не меняются первая и третья
-координаты (x и z соответственно), причем x=1, а z=0, тогда получим одночленxz
-. Для третьего ребра посмотрите самостоятельно.
+для грани, соединяющей точки с координатами $(1;0;0),\\ (0;0;0), (0;1;0), (1;1;0)$
+не меняются третья координата (соответствует z), и онa
+равнa нулю, значит соответствующий конъюнктивный одночлен $z'$, а для
+ребра, соединяющего точки (0;1;0) и (0;1;1) не меняются первая и вторая координаты (x и y соответственно), причем x=0, а y=1, тогда получим одночлен $x'y$.
+
+Ответ: $f=z' \lor x'y$
+
+\textit{Минимизация методом карт Карно}
+
+Составим двумерную таблицу значений нашей функции разделив
+переменные произвольным образом на две группы (предлагаем разделить на $x$ и
+$yz$ просто из-за того, что такая запись будет более протяженной горизонтально).
+Сочетания переменных упорядочим по коду Грея. Кодом Грея называется
+двоичный код, у которого два соседних значения различаются не более чем в
+одной позиции. Получим:
+
+\begin{center}
+\begin{Karnaughvuit}
+       \minterms{0,2,3,4,6}
+        \maxterms{1,5,7}
+\end{Karnaughvuit}
+\end{center}
+
+С помощью прямоугольников площадью кратной степени 2, покрываем
+все единицы, не задевая нули. При этом ячейки, которые находятся на
+противоположных концах (как по горизонтали, так и по вертикали, но не по
+диагонали) считаются смежными. Прямоугольники могут пересекаться.
+
+У нас получится:
+
+\begin{center}
+\begin{Karnaughvuit}
+       \minterms{0,2,3,4,6}
+        \maxterms{1,5,7}
+    \implicantcostats{0}{6}{green}
+       \implicant{3}{2}{red}
+\end{Karnaughvuit}
+\end{center}
+
+Каждый из прямоугольников описывается в виде конъюнктивного
+одночлена, как и для графического способа. Получим:
+
+$$f=z' \lor x'y$$
+
+\textit{Минимизация методом Квайна}
+
+Выписываем все совершенные одночлены, для которых $f=1$. Во втором
+столбце для удобства проведем их группировку по числу нулей в их записи.
+ % 10111010
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+    000 & 000\\
+    \cline{2-2}
+    010 & 010\\
+    011 & 100\\
+    \cline{2-2}
+    100 & 011\\
+    110 & 110\\
+    \hline
+\end{tabular}
+\end{center}
+
+Если в одночленах получается разница ровно в одной позиции, то
+заменяем «-».
+
+В этом плане группировка удобна тем, что можно проверять только
+одночлены из соседних групп, например, первый из первой группы и первый из
+второй, первый из первой группы и второй из второй и т.д.
+
+Помечаем одночлены, которые в этом участвовали. Результаты поместим
+в третий столбец. Получим:
+
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+    000 & *000 & 0-0\\
+    \cline{2-2}
+    010 & *010 & -00\\
+    011 & *100 & 01-\\
+    \cline{2-2}
+    100 & *011 & -10\\
+    110 & *110 & 1-0\\
+    \hline
+\end{tabular}
+\end{center}
+
+Для удобства сгруппируем теперь по местоположению «прочерка»:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}\hline
+    000 & *000 & 0-0 & -00\\
+    \cline{2-2}
+    010 & *010 & -00 & -10\\
+    \cline{4-4}
+    011 & *100 & 01- & 0-0\\
+    \cline{2-2}
+    100 & *011 & -10 & 1-0\\
+    \cline{4-4}
+    110 & *110 & 1-0 & 01-\\
+    \hline
+\end{tabular}
+\end{center}
+
+Продолжаем этот процесс (объединения) пока возможно, считая прочерк
+третьим символом. При этом, с учетом последнего разбиения на группы, мы
+можем работать только в одной группе (нельзя объединить элементы разных
+групп). Не забывайте ставить пометки тех элементов, которые вы объединяете.
+Это важно!
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}\hline
+	000 & *000 & 0-0 & *-00 & --0\\
+    \cline{2-2}
+	010 & *010 & -00 & *-10\\
+    \cline{4-4}
+    011 & *100 & 01- & *0-0\\
+    \cline{2-2}
+    100 & *011 & -10 & *1-0\\
+    \cline{4-4}
+    110 & *110 & 1-0 & 01-\\
+    \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+	& 01- & --0\\
+	\hline
+	000 & & +\\
+	\hline
+	010 & + & +\\
+	\hline
+	011 & + & \\
+	\hline
+	100 & & +\\
+	\hline
+	110 & & +\\
+    \hline
+\end{tabular}
+\end{center}
+
+Отбираем минимальное число столбцов, с суммарным минимальным
+числом переменных так, чтобы они покрыли все строки. Для этого вначале
+определим те одночлены, которые войдут в ядро (в этих строках только один
+«+», поэтому для них альтернативы нет). У нас это первый, третий, четвертый, пятый столбцы,
+значит одночлены 01- и --0 обязательно войдут в ответ. В результате получим,
+что «+», соответствующие выбранным одночленам у нас автоматически будут в
+1, 2, 3, 4, 5 строка.
+
+&&f=x'y \lor z'&&
 
 \end{document}
