@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{array, multirow}
+\usetikzlibrary{matrix,calc}
+\graphicspath{ {./images/} }
+
+\begin{document}
+\textit{\textbf{Задание 6:}}
+
+Построив соответствующую таблицу значений, выясните, равны ли
+следующие булевы функции
+
+$$f(x,y,z)=xy' \lor x'y \lor x'z',
+\ g(x,y,z)=(x' \lor y')(x \lor y \lor z')$$
+
+\underline{Решение:}
+
+Построим таблицы значений для функций $f$ и $g$:
+
+$$f(x,y,z)=x y' \lor x' y \lor x'z'$$
+
+\begin{center}
+        \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| }
+                \hline
+                $x$ & $y$ & $z$ & $x'$ & $y'$ & $z'$ & $xy'$ & $x'y$ & $x' z'$ & $f(x,y,z)$\\
+                \hline
+                0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 1\\
+                \hline
+                0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0\\
+                \hline
+                0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 1\\
+                \hline
+                0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 1\\
+                \hline
+                1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1\\
+                \hline
+                1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 1\\
+                \hline
+                1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+                \hline
+                1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                \hline
+        \end{tabular}
+\end{center}
+
+$$g(x,y,z)=(x' \lor y')(x \lor y \lor z')$$
+
+\begin{center}
+        \begin{tabular}{ |c|c|c|c|c|c|c|c|c| }
+                \hline
+                $x$ & $y$ & $z$ & $x'$ & $y'$ & $z'$ & $x' \lor y'$ & $x \lor y \lor z'$ & $g(x,y,z)$\\
+                \hline
+                0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1\\
+                \hline
+                0 & 0 & 1 & 1 & 1 & 0 & 1 & 0 & 0\\
+                \hline
+                0 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 1\\
+                \hline
+                0 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 1\\
+                \hline
+                1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+                \hline
+                1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 1\\
+                \hline
+                1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0\\
+                \hline
+                1 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0\\
+                \hline
+        \end{tabular}
+\end{center}
+
+Получили:\\
+$$f(x,y,z)=g(x,y,z)$$
+
+\pagebreak
+
+\textit{\textbf{Задание 10.}}
+
+\textit{Докажите, что одна из функций двойственна другой:}
+
+$$ xy + yz + x + y + z + 1, xy + yz + y + 1$$
+
+\underline{Решение:}
+
+Найдем двойственную функцию для данной функции
+
+$f(x,y,z)=xy + yz + x + y + z + 1: f^* = (x'y' + y'z' + x' + y' + z' + 1)' = $
+
+$ = x'y' + y'z' + x' + y' + z' + 1 + 1 = x'y' + y'z' + x' + y' + z' = $
+
+$ = (x+1)(y+1) + (y+1)(z+1) + (x+1) + (y+1) + (z+1) = $
+
+$ = (xy + x + y + 1) + (yz + y + z + 1) + (x+1) + (y+1) + (z+1) = $
+
+$ = 1 + y + xy + yz$, что и требовалось доказать
+
+\end{document}
