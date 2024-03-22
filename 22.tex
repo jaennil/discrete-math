@@ -1,0 +1,126 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{nicematrix,tikz}
+\graphicspath{ {./images/} }
+
+
+\begin{document}
+
+Дубровских Никита 221-361
+
+\textit{\textbf{Вариант 7}}
+
+\textit{\textbf{Задание 22.}}
+
+\textit{При помощи венгерского алгоритма решите задачу на максимум
+для двудольного графа, заданного матрицей:}
+
+\begin{center}
+$C = \begin{pmatrix}
+	4 & 3 & 5 & 6 \\
+	3 & 4 & 8 & 7 \\
+	5 & 7 & 5 & 6 \\
+	4 & 6 & 8 & 4
+\end{pmatrix}$.
+\end{center}
+
+\underline{Решение:}
+
+Поскольку решается задача на максимум, то нам потребуется сделать
+один дополнительный шаг: найдем максимальный элемент – 8 и отнимем
+каждый элемент от него. Получим:
+
+\begin{center}
+$C = \begin{pmatrix}
+	4 & 5 & 3 & 2 \\
+	5 & 4 & 0 & 1 \\
+	3 & 1 & 3 & 2 \\
+	4 & 2 & 0 & 4
+\end{pmatrix}$.
+\end{center}
+
+Задача свелась к решению задачи на минимум.
+
+Теперь проведем редукцию по строкам (найдем в каждой строке
+наименьший элемент и вычтем его из всех элементов данной строки):
+
+\begin{center}
+$C = \begin{pmatrix}
+	2 & 3 & 1 & 0 \\
+	5 & 4 & 0 & 1 \\
+	2 & 0 & 2 & 1 \\
+	4 & 2 & 0 & 4
+\end{pmatrix}$.
+\end{center}
+
+Теперь проведем редукцию по столбцам:
+
+\begin{center}
+$C = \begin{pmatrix}
+	0 & 3 & 1 & 0 \\
+	3 & 4 & 0 & 1 \\
+	0 & 0 & 2 & 1 \\
+	2 & 2 & 0 & 4
+\end{pmatrix}$.
+\end{center}
+
+Поскольку нули выбрать не получается нам нужно вычеркнуть все нули
+минимальным количеством горизонтальных и/или
+горизонтальных линий:
+
+\[
+	C = 
+\begin{pNiceMatrix}
+	0 & 3 & 1 & 0 \\
+	3 & 4 & 0 & 1 \\
+	0 & 0 & 2 & 1 \\
+	2 & 2 & 0 & 4
+% \CodeAfter \tikz [black] \draw (1.5-|1) -- (1.5-|last) (1-|3.5) -- (last-|3.5) ;
+	\CodeAfter \tikz [black] \draw (3.5-|1) -- (3.5-|last)
+	(1-|3.5) -- (last-|3.5)
+	(1.5-|1) -- (1.5-|last);
+\end{pNiceMatrix}
+\]
+
+Среди всех невычеркнутых элементов находим минимальный. Отнимаем
+его от всех невычеркнутых элементов и прибавляем в местах пересечения
+линий, те элементы, через которые проходит только одна линия не трогаем.
+
+Получим:
+
+\begin{center}
+$C = \begin{pmatrix}
+	0 & 3 & 2 & 0 \\
+	2 & 3 & 0 & 0 \\
+	0 & 0 & 3 & 1 \\
+	1 & 1 & 0 & 3
+\end{pmatrix}$.
+\end{center}
+
+Теперь смотрим, можно ли здесь выбрать нули (в каждой строке или
+каждом столбце ровно один ноль). Такое возможно:
+
+\begin{center}
+$C = \begin{pmatrix}
+	\tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{0} & 3 & 2 & 0 \\
+	2 & 3 & 0 & \tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{0} \\
+	0 & \tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{0} & 3 & 1 \\
+	1 & 1 & \tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{0} & 3
+\end{pmatrix}$.
+\end{center}
+
+Тогда ответ:
+
+\begin{center}
+$C = \begin{pmatrix}
+	\tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{4} & 3 & 5 & 6 \\
+	3 & 4 & 8 & \tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{7} \\
+	5 & \tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{7} & 5 & 6 \\
+	4 & 6 & \tikz \node[draw,circle, inner sep=0pt, minimum size=4mm, color=red]{8} & 4
+\end{pmatrix}$.
+\end{center}
+
+\end{document}
